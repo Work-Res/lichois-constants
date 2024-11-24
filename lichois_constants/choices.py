@@ -27,6 +27,8 @@ from .constants import (
     ENDED,
     PRESENT,
     ABSENT,
+    ACTIVE,
+    INACTIVE,
 
     # Document Status
     ISSUED,
@@ -41,6 +43,9 @@ from .constants import (
     POSTAL,
     TELEPHONE,
     CELLPHONE,
+    RESIDENTIAL,
+    BUSINESS,
+    PRIVATE,
 
     # Identity Types
     OMANG,
@@ -59,6 +64,16 @@ from .constants import (
     # Permit Types
     WORK,
     RESIDENCE,
+    DIPLOMATIC,
+    OFFICIAL,
+    EMPLOYMENT,
+    INVESTMENT,
+    BUSINESS,
+    STUDY,
+    TOURIST,
+    VISITOR,
+    TRANSIT,
+    EMERGENCY,
 
     # Person Types
     APPLICANT,
@@ -79,7 +94,7 @@ from .constants import (
     MISSIONARY,
 
     # Education Levels
-    JUNIOR_SCHOOL,
+    HIGH_SCHOOL,
     ASSOCIATE_DEGREE,
     BACHELORS_DEGREE,
     MASTERS_DEGREE,
@@ -271,4 +286,42 @@ PERSON_TYPE = (
 APPLICANT_TYPE = (
     (EMPLOYEE, _("Employee")),
     (INVESTOR, _("Investor"))
+)
+
+EDUCATION_LEVELS = (
+    (HIGH_SCHOOL, _("High School")),
+    (ASSOCIATE_DEGREE, _("Associate Degree")),
+    (BACHELORS_DEGREE, _("Bachelor's Degree")),
+    (MASTERS_DEGREE, _("Master's Degree")),
+    (DOCTORATE, _("Doctorate")),
+    (DIPLOMA, _("Diploma")),
+    (CERTIFICATE, _("Certificate")),
+    (VOCATIONAL, _("Vocational")),
+    (PROFESSIONAL_DEGREE, _("Professional Degree")),
+    (TECHNICAL_DEGREE, _("Technical Degree")),
+    (POSTGRADUATE_CERTIFICATE, _("Postgraduate Certificate")),
+    (OTHER, _("Other: Specify other education")),
+)
+
+ADDRESS_STATUS = ((ACTIVE, _("Active")), (INACTIVE, _("Inactive")))
+
+ADDRESS_TYPE = (
+    (RESIDENTIAL, _("Residential")),
+    (BUSINESS, _("Business")),
+    (POSTAL, _("Postal")),
+    (PRIVATE, _("private")),
+    (OTHER, _("Other: Specify")),
+)
+
+VISA_TYPES = (
+    (DIPLOMATIC, _("Diplomatic")),
+    (OFFICIAL, _("Official")),
+    (EMPLOYMENT, _("Employment")),
+    (BUSINESS, _("Business")),
+    (INVESTMENT, _("Investment")),
+    (TOURIST, _("Tourist")),
+    (VISITOR, _("Visitor")),
+    (STUDY, _("Study")),
+    (TRANSIT, _("Transit")),
+    (EMERGENCY, _("Emergency")),
 )

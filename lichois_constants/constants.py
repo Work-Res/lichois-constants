@@ -29,6 +29,8 @@ STARTED = "started"
 ENDED = "ended"
 PRESENT = "present"
 ABSENT = "absent"
+ACTIVE = "active"
+INACTIVE = "inactive"
 
 # Document Status
 ISSUED = "issued"
@@ -43,6 +45,12 @@ SMS = "sms"
 POSTAL = "postal"
 TELEPHONE = "telephone"
 CELLPHONE = "cellphone"
+
+# Address Type Constants
+RESIDENTIAL = "residential"
+BUSINESS = "business"
+POSTAL = "postal"
+PRIVATE = "private"
 
 # Identity Types
 OMANG = "OMANG"
@@ -84,17 +92,17 @@ IMMIGRANT = "immigrant"
 MISSIONARY = "missionary"
 
 # Education Levels
-JUNIOR_SCHOOL = "Junior School"
-ASSOCIATE_DEGREE = "Associate Degree"
-BACHELORS_DEGREE = "Bachelor's Degree"
-MASTERS_DEGREE = "Master's Degree"
-DOCTORATE = "Doctorate"
-DIPLOMA = "Diploma"
-CERTIFICATE = "Certificate"
-VOCATIONAL = "Vocational"
-PROFESSIONAL_DEGREE = "Professional Degree"
-TECHNICAL_DEGREE = "Technical Degree"
-POSTGRADUATE_CERTIFICATE = "Postgraduate Certificate"
+HIGH_SCHOOL = "high_school"
+ASSOCIATE_DEGREE = "associate_degree"
+BACHELORS_DEGREE = "bachelors_degree"
+MASTERS_DEGREE = "masters_degree"
+DOCTORATE = "doctorate"
+DIPLOMA = "diploma"
+CERTIFICATE = "certificate"
+VOCATIONAL = "vocational"
+PROFESSIONAL_DEGREE = "professional_degree"
+TECHNICAL_DEGREE = "technical_degree"
+POSTGRADUATE_CERTIFICATE = "postgraduate_certificate"
 OTHER_EDUCATION = "Other"
 
 # Duration Types
@@ -115,6 +123,19 @@ APPEAL = "appeal"
 CANCELLATION = "cancellation"
 REVIEW = "review"
 RECONSIDERATION = "reconsideration"
+
+# Visa Type Constants
+DIPLOMATIC = "diplomatic"
+OFFICIAL = "official"
+EMPLOYMENT = "employment"
+BUSINESS = "business"
+INVESTMENT = "investment"
+TOURIST = "tourist"
+VISITOR = "visitor"
+STUDY = "study"
+TRANSIT = "transit"
+EMERGENCY = "emergency"
+
 
 UUID_PATTERN = re.compile(
     '[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}|'
