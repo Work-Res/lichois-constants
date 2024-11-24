@@ -45,6 +45,9 @@ from .constants import (
     # Identity Types
     OMANG,
     PASSPORT,
+    DRIVERS_LICENSE,
+    OMANG_RECEIPT,
+    OTHER_ID,
 
     # Marital Status
     SINGLE,
@@ -69,6 +72,11 @@ from .constants import (
     ADOPTIVE_PARENT,
     SUBSCRIBER,
     OFFICER,
+    DEPENDENT,
+    VOLUNTEER,
+    STUDENT,
+    IMMIGRANT,
+    MISSIONARY,
 
     # Education Levels
     JUNIOR_SCHOOL,
@@ -100,6 +108,8 @@ from .constants import (
     REPLACEMENT,
     APPEAL,
     CANCELLATION,
+    REVIEW,
+    RECONSIDERATION,
 
     # Applicant Types
     EMPLOYEE,
@@ -233,39 +243,31 @@ REASONS_PERMIT = (
 )
 
 REPORT_STATUS = (
-    (OPEN, "Open. Some information is still pending."),
-    (CLOSED, "Closed. This report is complete"),
+    (OPEN, _("Open. Some information is still pending.")),
+    (CLOSED, _("Closed. This report is complete")),
 )
 
-YES_NO = (("yes", "Yes"), ("no", "No"))
+YES_NO = ((YES, _("Yes")), (NO, _("No")))
 
 CERTIFICATE_STATUS = (
-    ("issued", "Issued"),
-    ("not_issued", "Not Issued"),
-    ("lost", "Lost"),
-    ("stolen", "Stolen"),
-    ("damaged", "Damaged"),
+    (ISSUED, _("Issued")),
+    (NOT_ISSUED, _("Not Issued")),
+    (LOST, _("Lost")),
+    (STOLEN, _("Stolen")),
+    (DAMAGED, _("Damaged")),
 )
 
 APPEAL_TYPE = (
-    ("appeal", "Appeal"),
-    ("review", "Review"),
-    ("renewal", "Renewal"),
-    ("reconsideration", "Reconsideration"),
+    (APPEAL, _("Appeal")),
+    (REVIEW, _("Review")),
+    (RENEWAL, _("Renewal")),
+    (RECONSIDERATION, _("Reconsideration")),
 )
 
 APPEAL_STATUS = (
-    ("pending", "Pending"),
-    ("rejected", "Rejected"),
-    ("accepted", "Accepted"),
-)
-
-PERSON_TYPE = (
-    ("applicant", "Applicant"),
-    ("mother", "Mother"),
-    ("father", "Father"),
-    ("child", "Child"),
-    ("guardian", "Guardian"),
+    (PENDING, _("Pending")),
+    (REJECTED, _("Rejected")),
+    (ACCEPTED, _("Accepted")),
 )
 
 EMERGENCY_PERIOD = (

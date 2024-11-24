@@ -47,6 +47,10 @@ CELLPHONE = "cellphone"
 # Identity Types
 OMANG = "OMANG"
 PASSPORT = "PASSPORT"
+DRIVERS_LICENSE = "DRIVERS"
+PASSPORT = "PASSPORT"
+OMANG_RECEIPT = "OMANG_RCPT"
+OTHER_ID = "OTHER"
 
 # Marital Status
 SINGLE = "single"
@@ -73,6 +77,11 @@ SUBSCRIBER = "subscriber"
 EMPLOYEE = "employee"
 INVESTOR = "investor"
 OFFICER = "officer"
+DEPENDENT = "dependent"
+VOLUNTEER = "volunteer"
+STUDENT = "student"
+IMMIGRANT = "immigrant"
+MISSIONARY = "missionary"
 
 # Education Levels
 JUNIOR_SCHOOL = "Junior School"
@@ -104,6 +113,8 @@ RENEWAL = "renewal"
 REPLACEMENT = "replacement"
 APPEAL = "appeal"
 CANCELLATION = "cancellation"
+REVIEW = "review"
+RECONSIDERATION = "reconsideration"
 
 UUID_PATTERN = re.compile(
     '[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}|'
