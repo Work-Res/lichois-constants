@@ -1,63 +1,118 @@
 from django.utils.translation import gettext as _
 
 from .constants import (
-    ALIVE, DEAD, DECLINED, DWTA, FEMALE, IND, MALE, NAIVE,
-    NEG, NEVER, NO, NOT_APPLICABLE, OMANG, OTHER, POS, REFUSED, UNKNOWN, YES,
-    MORNING, AFTERNOON, EVENING, ANYTIME, WEEKDAYS, WEEKENDS,
-    NOT_SURE, NORMAL, ABNORMAL, NOT_DONE)
+    MALE,
+    FEMALE,
+    OTHER,
 
+    # Basic Response Constants
+    YES,
+    NO,
+    NOT_APPLICABLE,
 
-BLANK_CHOICE_DASH = [('', '---------')]
+    # Status Constants
+    OPEN,
+    CLOSED,
+    DRAFT,
+    PENDING,
+    APPROVED,
+    ACCEPTED,
+    REJECTED,
+    CANCELLED,
+    SCHEDULED,
+    ON_GOING,
+    COMPLETED,
+    DEFERRED,
+    STARTED,
+    ENDED,
+    PRESENT,
+    ABSENT,
 
-""" Try to keep these in alphabetical order
-"""
+    # Document Status
+    ISSUED,
+    NOT_ISSUED,
+    LOST,
+    STOLEN,
+    DAMAGED,
 
-ACU_EST = (
-    ('Acute', 'Acute'),
-    ('Established', 'Established'),
+    # Communication Methods
+    EMAIL,
+    SMS,
+    POSTAL,
+    TELEPHONE,
+    CELLPHONE,
+
+    # Identity Types
+    OMANG,
+    PASSPORT,
+
+    # Marital Status
+    SINGLE,
+    MARRIED,
+    WIDOWED,
+    SEPARATED,
+    DIVORCED,
+
+    # Permit Types
+    WORK,
+    RESIDENCE,
+
+    # Person Types
+    APPLICANT,
+    MOTHER,
+    FATHER,
+    CHILD,
+    GUARDIAN,
+    SPONSOR,
+    WITNESS,
+    DECLARANT,
+    ADOPTIVE_PARENT,
+    SUBSCRIBER,
+    OFFICER,
+
+    # Education Levels
+    JUNIOR_SCHOOL,
+    ASSOCIATE_DEGREE,
+    BACHELORS_DEGREE,
+    MASTERS_DEGREE,
+    DOCTORATE,
+    DIPLOMA,
+    CERTIFICATE,
+    VOCATIONAL,
+    PROFESSIONAL_DEGREE,
+    TECHNICAL_DEGREE,
+    POSTGRADUATE_CERTIFICATE,
+    OTHER_EDUCATION,
+
+    # Duration Types
+    YEARS,
+    MONTHS,
+    WEEKS,
+    DAYS,
+    PERMANENT,
+    EMERGENCY_SHORT,
+    EMERGENCY_MEDIUM,
+    EMERGENCY_LONG,
+
+    # Application Types
+    INITIAL,
+    RENEWAL,
+    REPLACEMENT,
+    APPEAL,
+    CANCELLATION,
+
+    # Applicant Types
+    EMPLOYEE,
+    INVESTOR,
+
+    # Other Constants
+    UUID_PATTERN,
+    VIEW,
+    WEEKDAYS,
+    WEEKENDS,
+    ANYTIME
 )
 
-ACU_EST_NEG = (
-    ('Acute', 'Acute'),
-    ('Established', 'Established'),
-    ('Negative', 'Negative'),
-)
-
-ALIVE_DEAD = (
-    (ALIVE, 'Alive'),
-    (DEAD, 'Dead'),
-)
-
-ALIVE_DEAD_UNKNOWN = (
-    (ALIVE, 'Alive'),
-    (DEAD, 'Deceased'),
-    (UNKNOWN, 'Unknown'),
-)
-
-ART_STATUS = (
-    ('ON', 'Yes, on ART'),
-    ('STOPPED', 'No, stopped ART'),
-    (NAIVE, 'No, have never taken ART'),
-)
-
-ART_STATUS_UNKNOWN = (
-    ('ON', 'ON ART'),
-    ('STOPPED', 'Stopped'),
-    (NAIVE, 'Naive'),
-    (UNKNOWN, 'Unknown'),
-
-)
-
-ART_STATUS_CONFIRM = (
-    ('OPD', '1. Show OPD/IDCC card'),
-    ('Pills', '2. Show pills'),
-    ('Pic', '3. Identify pictorial'),
-)
-
-CONFIRMED_SUSPECTED = (
-    ('CONFIRMED', 'Confirmed'),
-    ('SUSPECTED', 'Suspected'),
-)
 
 COUNTRY = (
     ('botswana', 'Botswana'),
@@ -82,68 +137,11 @@ DAYS_OF_WEEK = (
     ('AnyDay', 'Any day'),
 )
 
-
-DATE_ESTIMATED = (
-    ('-', 'No'),
-    ('D', 'Yes, estimated the Day'),
-    ('MD', 'Yes, estimated Month and Day'),
-    ('YMD', 'Yes, estimated Year, Month and Day'),
-)
-
-DEATH_RELATIONSIP_TO_STUDY = (
-    ('Definitely not related', 'Definitely not related'),
-    ('Probably not related', 'Probably not related'),
-    ('Possible related', 'Possible related'),
-    ('Probably related', 'Probably related'),
-    ('Definitely related', 'Definitely related')
-)
-
-
-FEEDING = (
-    ('BF', 'Breast feed'),
-    ('FF', 'Formula feed'),
-)
-
 GENDER = (
     (MALE, _('Male')),
     (FEMALE, _('Female')),
 )
 
-GENDER_UNDETERMINED = (
-    (MALE, _('Male')),
-    (FEMALE, _('Female')),
-    ('U', _('Undetermined')),
-)
-
-GRADING_SCALE = (
-    (1, 'Grade 1'),
-    (2, 'Grade 2'),
-    (3, 'Grade 3'),
-    (4, 'Grade 4'),
-    (5, 'Grade 5'),
-)
-
-GRADING_SCALE_234 = (
-    (2, 'Grade 2'),
-    (3, 'Grade 3'),
-    (4, 'Grade 4'),
-)
-
-GRADING_SCALE_34 = (
-    (3, 'Grade 3'),
-    (4, 'Grade 4'),
-)
-
-HIV_RESULT = (
-    (POS, 'HIV Positive (Reactive)'),
-    (NEG, 'HIV Negative (Non-reactive)'),
-    (IND, 'Indeterminate'),
-    (DECLINED, 'Participant declined testing'),
-    ('Not performed',
-     'Test could not be performed (e.g. supply outage, technical problem)'),
-)
-
-"""do not change without inspecting implication to check_omang_field() in utils.py"""
 IDENTITY_TYPE = (
     (OMANG, 'Omang'),
     ('DRIVERS', 'Driver\'s License'),
@@ -153,112 +151,12 @@ IDENTITY_TYPE = (
 )
 
 
-NORMAL_ABNORMAL = (
-    (NORMAL, 'Normal'),
-    (ABNORMAL, 'Abnormal'),
-)
-
-NORMAL_ABNORMAL_NOEXAM = (
-    (NORMAL, 'Normal'),
-    (ABNORMAL, 'Abnormal'),
-    ('NO_EXAM', 'No exam performed'),
-)
-
-NORMAL_ABNORMAL_NOTEVALUATED = (
-    (NORMAL, 'Normal'),
-    (ABNORMAL, 'Abnormal'),
-    ('NOT_EVAL', 'Not evaluated'),
-)
-
-POS_NEG = (
-    (POS, 'Positive'),
-    (NEG, 'Negative'),
-    (IND, 'Indeterminate'),
-)
-
-POS_NEG_REFUSED = (
-    (POS, 'Positive'),
-    (NEG, 'Negative'),
-    (IND, 'Indeterminate'),
-    ('REF', 'Refused to disclose'),
-)
-
-POS_NEG_ANY = (
-    (POS, 'Positive'),
-    (NEG, 'Negative'),
-    ('ANY', 'Any'),
-)
-
-POS_NEG_ONLY = (
-    (POS, _('Positive')),
-    (NEG, _('Negative')),
-)
-
-POS_NEG_UNKNOWN = (
-    (POS, _('Positive')),
-    (NEG, _('Negative')),
-    (UNKNOWN, _('Unknown')),
-)
-
-POS_NEG_IND_UNKNOWN = (
-    (POS, _('Positive')),
-    (NEG, _('Negative')),
-    (IND, 'Indeterminate'),
-    (UNKNOWN, _('Unknown')),
-)
-
-POS_NEG_ACU = (
-    ('Positive', 'Positive'),
-    ('Negative', 'Negative'),
-    ('Possible Acute', 'Possible acute'),
-    ('Indeterminate', 'Indeterminate'),
-)
-
-POS_NEG_NOTESTED = (
-    (POS, 'Positive'),
-    (NEG, 'Negative'),
-    (NEVER, 'Never tested for HIV'),
-)
-
-
-POS_NEG_UNTESTED_REFUSAL = (
-    (POS, 'Positive'),
-    (NEG, 'Negative'),
-    (IND, 'Indeterminate'),
-    (NEVER, 'Never tested for HIV'),
-    (UNKNOWN, 'Unknown'),
-    (DWTA, 'Don\'t want to answer'),
-)
-
-REFUSAL_STATUS = (
-    (REFUSED, 'Refused'),
-    ('NOT_REFUSED', 'No longer refusing'),
-)
-
-SEVERITY_LEVEL = (
-    ('mild', 'Mild'),
-    ('moderate', 'Moderate'),
-    ('severe', 'Severe'),
-)
-
-SEXUAL_DEBUT = (
-    ('<=14', '14 or under'),
-    ('15-17', ' 15 - 17'),
-    ('>=18', '18 or above'),
-)
-
 TIME_OF_WEEK = (
     (WEEKDAYS, 'Weekdays'),
     (WEEKENDS, 'Weekends'),
     (ANYTIME, 'Anytime')
 )
 
-TIME_OF_DAY = (
-    (MORNING, 'Morning'),
-    (AFTERNOON, 'Afternoon'),
-    (EVENING, 'Evening'),
-    (ANYTIME, 'Anytime')
-)
 
 TIME_UNITS = (
     ('TODAY', 'Today'),
@@ -268,51 +166,11 @@ TIME_UNITS = (
     ('YEARS', 'Years'),
 )
 
-URINALYSIS = (
-    ('NAD', 'NAD'),
-    ('Sugar Neg', 'Sugar Neg'),
-    ('Sugar +', 'Sugar +'),
-    ('Sugar ++', 'Sugar ++'),
-    ('Sugar +++', 'Sugar +++'),
-    ('Blood', 'Blood'),
-    ('Protein', 'Protein'),
-    ('Cells', 'Cells'),
-)
-
 YES_NO = (
     (YES, _(YES)),
     (NO, _(NO)),
 )
 
-YES_NO_DECLINED = (
-    (YES, YES),
-    (NO, NO),
-    (DECLINED, 'Yes, but subject declined copy'),
-)
-
-YES_NO_OPTIONAL = (
-    (YES, YES),
-    (NO, NO),
-    ('Optional', 'Optional'),
-)
-
-YES_NO_REFUSED = (
-    (YES, _(YES)),
-    (NO, _(NO)),
-    (REFUSED, _('Refused to answer')),
-)
-
-YES_NO_DWTA = (
-    (YES, _(YES)),
-    (NO, _(NO)),
-    (DWTA, _('Don\'t want to answer')),
-)
-
-YES_NO_NA_SPECIFY = (
-    (YES, 'Yes, (Specify below)'),
-    (NO, NO),
-    (NOT_APPLICABLE, 'Not applicable'),
-)
 
 YES_NO_NA = (
     (YES, YES),
@@ -320,226 +178,113 @@ YES_NO_NA = (
     (NOT_APPLICABLE, 'Not applicable'),
 )
 
+# TODO: update choices
 
-YES_NO_NA_DWTA = (
-    (YES, _(YES)),
-    (NO, _(NO)),
-    (DWTA, _('Don\'t want to answer')),
-    (NOT_APPLICABLE, 'Not applicable'),
+COMM_METHODS = (("email", "E-mail"), ("sms", "SMS"), ("postal", "Post"))
+
+DATE_ESTIMATED_NA = (
+    (NOT_APPLICABLE, "Not applicable"),
+    ("not_estimated", "No."),
+    ("D", "Yes, estimated the Day"),
+    ("MD", "Yes, estimated Month and Day"),
+    ("YMD", "Yes, estimated Year, Month and Day"),
 )
 
-YES_NO_NA_DWTA_DNK = (
-    (YES, _(YES)),
-    (NO, _(NO)),
-    (DWTA, _('Don\'t want to answer')),
-    ('cant_remember', 'Cannot remember'),
+DATE_ESTIMATED = (
+    ("-", "No"),
+    ("D", "Yes, estimated the Day"),
+    ("MD", "Yes, estimated Month and Day"),
+    ("YMD", "Yes, estimated Year, Month and Day"),
 )
 
-YES_NO_NOT_EVALUATED = (
-    (YES, YES),
-    (NO, NO),
-    ('Not_evaluated', 'Not evaluated'),
+GENDER = (("male", "Male"), ("female", "Female"), ("other", "OTHER"))
+
+IDENTITY_TYPE = (
+    ("OMANG", "Omang"),
+    ("DRIVERS", "Driver's License"),
+    ("PASSPORT", "Passport"),
+    ("OMANG_RCPT", "Omang Receipt"),
+    ("OTHER", "Other"),
 )
 
-YES_NO_NOT_EVALUATED_NA = (
-    (YES, YES),
-    (NO, NO),
-    ('Not_evaluated', 'Not evaluated'),
-    (NOT_APPLICABLE, 'Not applicable'),
+MARITAL_STATUS = (
+    ("single", "Single"),
+    ("married", "Married"),
+    ("widowed", "Widowed"),
+    ("separated", "Separated"),
+    ("divorced", "Divorced"),
 )
 
-YES_NO_NOT_DONE = (
-    (YES, YES),
-    (NO, NO),
-    (NOT_DONE, 'Not done'),
+PERMIT_TYPE = (("work", "Work"), ("residence", "Residence"))
+
+POSTAL_PREFIX = (
+    ("VB#", "VB#"),
+    ("private_bag", "Private Bag"),
+    ("p_o_box", "P. O. Box"),
 )
 
-YES_NO_DOESNT_WORK = (
-    (YES, YES),
-    (NO, NO),
-    ('DontWork', 'Doesn\'t work'),
+PREFERRED_METHOD_COMM = (("sms", "SMS"), ("post", "POST"), ("email", "EMAIL"))
+REASONS_PERMIT = (
+    ("dependent", "Dependent"),
+    ("volunteer", "Volunteer"),
+    ("student", "Student"),
+    ("immigrant", "Immigrant"),
+    ("missionary", "Missionary"),
 )
 
-YES_NO_UNKNOWN = (
-    (YES, YES),
-    (NO, NO),
-    (UNKNOWN, 'Unknown'),
+REPORT_STATUS = (
+    (OPEN, "Open. Some information is still pending."),
+    (CLOSED, "Closed. This report is complete"),
 )
 
-YES_NO_NA_DWTA_DNK = (
-    (YES, _(YES)),
-    (NO, _(NO)),
-    (DWTA, _('Don\'t want to answer')),
-    ('cant_remember', 'Cannot remember'))
+YES_NO = (("yes", "Yes"), ("no", "No"))
 
-YES_NO_UNKNOWN_NA = (
-    (YES, YES),
-    (NO, NO),
-    (UNKNOWN, 'Unknown'),
-    (NOT_APPLICABLE, 'Not applicable'),
+CERTIFICATE_STATUS = (
+    ("issued", "Issued"),
+    ("not_issued", "Not Issued"),
+    ("lost", "Lost"),
+    ("stolen", "Stolen"),
+    ("damaged", "Damaged"),
 )
 
-YES_NO_UNSURE = (
-    (YES, YES),
-    (NO, NO),
-    (NOT_SURE, 'Not sure'),
+APPEAL_TYPE = (
+    ("appeal", "Appeal"),
+    ("review", "Review"),
+    ("renewal", "Renewal"),
+    ("reconsideration", "Reconsideration"),
 )
 
-YES_NO_UNSURE_DWTA = (
-    (YES, YES),
-    (NO, NO),
-    (NOT_SURE, 'Not sure'),
-    (DWTA, 'Don\'t want to answer')
+APPEAL_STATUS = (
+    ("pending", "Pending"),
+    ("rejected", "Rejected"),
+    ("accepted", "Accepted"),
 )
 
-YES_NO_UNSURE_NA = (
-    (YES, YES),
-    (NO, NO),
-    (NOT_SURE, 'Not sure'),
-    (NOT_APPLICABLE, 'Not applicable'),
+PERSON_TYPE = (
+    ("applicant", "Applicant"),
+    ("mother", "Mother"),
+    ("father", "Father"),
+    ("child", "Child"),
+    ("guardian", "Guardian"),
 )
 
-YES_NO_DONT_KNOW = (
-    (YES, YES),
-    (NO, NO),
-    ('Dont_know', 'Do not know'),
+EMERGENCY_PERIOD = (
+    (EMERGENCY_SHORT, _("1 - 14 days")),
+    (EMERGENCY_MEDIUM, _("15 - 90 days")),
+    (EMERGENCY_LONG, _("6 months")),
 )
 
-YES_NO_DONT_KNOW_NA = (
-    (YES, YES),
-    (NO, NO),
-    ('Dont_know', 'Do not know'),
-    (NOT_APPLICABLE, 'Not applicable'),
+SUBMITTER_TYPE = ((APPLICANT, _("Applicant")), (OFFICER, _("Officer")))
+
+PERSON_TYPE = (
+    (APPLICANT, _("Applicant")),
+    (MOTHER, _("Mother")),
+    (FATHER, _("Father")),
+    (CHILD, _("Child")),
+    (GUARDIAN, _("Guardian")),
 )
 
-YES_NO_DOESNT_WORK = (
-    (YES, YES),
-    (NO, NO),
-    ('Doesnt_work', 'Doesn\'t work'),
-)
-
-ARV_DRUG_LIST = (
-    ('Nevirapine', 'NVP'),
-    ('Kaletra', 'KAL'),
-    ('Aluvia', 'ALU'),
-    ('Truvada', 'TRV'),
-    ('Tenoforvir', 'TDF',),
-    ('Zidovudine', 'AZT'),
-    ('Lamivudine', '3TC'),
-    ('Efavirenz', 'EFV'),
-    ('Didanosine', 'DDI'),
-    ('Stavudine', 'D4T'),
-    ('Nelfinavir', 'NFV'),
-    ('Abacavir', 'ABC'),
-    ('Combivir', 'CBV'),
-    ('Ritonavir', 'RTV'),
-    ('Trizivir', 'TZV'),
-    ('Raltegravir', 'RAL'),
-    ('Saquinavir,soft gel capsule', 'FOR'),
-    ('Saquinavir,hard capsule', 'INV'),
-    ('Kaletra or Aluvia', 'KAL or ALU'),
-    ('Atripla', 'ATR'),
-    ('HAART,unknown', 'HAART,unknown'),
-)
-
-ARV_MODIFICATION_REASON = (
-    ('Initial dose', 'Initial dose'),
-    ('Never started', 'Never started'),
-    ('Toxicity decreased_resolved', 'Toxicity decreased/resolved'),
-    ('Completed PMTCT intervention', 'Completed PMTCT intervention'),
-    ('Completed postpartum tail', 'Completed post-partum "tail"'),
-    ('Scheduled dose increase', 'Scheduled dose increase'),
-    ('Confirmed infant HIV infection, ending study drug',
-     'Confirmed infant HIV infection, ending study drug'),
-    ('completed protocol',
-     'Completion of protocol-required period of study treatment'),
-    ('HAART not available', 'HAART not available'),
-    ('Anemia', 'Anemia'),
-    ('Bleeding', 'Bleeding'),
-    ('CNS symptoms', 'CNS symptoms (sleep, psych, etc)'),
-    ('Diarrhea', 'Diarrhea'),
-    ('Fatigue', 'Fatigue'),
-    ('Headache', 'Headache'),
-    ('Hepatotoxicity', 'Hepatotoxicity'),
-    ('Nausea', 'Nausea'),
-    ('Neutropenia', 'Neutropenia'),
-    ('Thrombocytopenia', 'Thrombocytopenia'),
-    ('Vomiting', 'Vomiting'),
-    ('Rash', 'Rash'),
-    ('Rash resolved', 'Rash resolved'),
-    ('Neuropathy', 'Neuropathy'),
-    ('Hypersensitivity_allergic reaction',
-     'Hypersensitivity / allergic reaction'),
-    ('Pancreatitis', 'Pancreatitis'),
-    ('Lactic Acidiosis', 'Lactic Acidiosis'),
-    ('Pancytopenia', 'Pancytopenia'),
-    ('Virologic failure', 'Virologic failure'),
-    ('Immunologic failure', 'Immunologic failure(CD4)'),
-    ('Clinical failure', 'Clinical failure'),
-    ('Clinician request',
-     'Clinician request, other reason (including convenience)'),
-    ('Subject request',
-     'Subject request, other reason (including convenience)'),
-    ('Non-adherence with clinic visits', 'Non-adherence with clinic visits'),
-    ('Non-adherence with ARVs', 'Non-adherence with ARVs'),
-    ('Death', 'Death'),
-    (OTHER, 'Other'),
-)
-
-ARV_STATUS = (
-    ('no_mod', '1. No modifications made to existing HAART treatment',),
-    ('start',
-     '2. Started antriretroviral treatment since last attended scheduled visit(including today)',),
-    ('discontinued',
-     '3. Permanently discontinued antiretroviral treatment at or before last study visit',),
-    ('modified', ('4. Change in at least one antiretroviral medication since last '
-                  'attended scheduled visit (including today)(dose modification, '
-                  'permanent discontinuation, temporary hold, resumption / initiation '
-                  'after temporary hold)'),),
-)
-
-ARV_STATUS_WITH_NEVER = (
-
-    ('no_mod',
-     '1. No modifications made since the last attended scheduled visit or today'),
-    ('start',
-     '2. Starting today or has started since last attended scheduled visit'),
-    ('discontinued',
-     '3. Permanently discontinued at or before the last attended scheduled visit'),
-    ('never started', '4. Never started'),
-    ('modified',
-     '5. Change in at least one medication since the last attended scheduled visit or today'),
-    (NOT_APPLICABLE, 'Not applicable'),
-)
-
-DOSE_STATUS = (
-    ('New', 'New'),
-    ('Permanently discontinued', 'Permanently discontinued'),
-    ('Temporarily held', 'Temporarily held'),
-    ('Dose modified', 'Dose modified'),
-    ('Resumed', 'Resumed'),
-    ('Not initiated', 'Not initiated'),
-)
-
-WHYNOPARTICIPATE_CHOICE = (
-    ('I don\'t have time', _('I don\'t have time')),
-    ('I don\'t want to answer the questions',
-     _('I don\'t want to answer the questions')),
-    ('I don\'t want to have the blood drawn',
-     _('I don\'t want to have the blood drawn')),
-    ('I am afraid my information will not be private',
-     _('I am afraid my information will not be private')),
-    ('Fear of needles', _('Fear of needles')),
-    ('Illiterate does not want a witness',
-     _('Illiterate does not want a witness')),
-    ('I don\'t want to take part', _('I don\'t want to take part')),
-    ('I haven\'t had a chance to think about it',
-     _('I haven\'t had a chance to think about it')),
-    ('Have a newly born baby, not permitted',
-     _('Have a newly born baby, not permitted')),
-    ('The appointment was not honoured',
-     _('The appointment was not honoured')),
-    ('not_sure', _('I am not sure')),
-    ('OTHER', _('Other, specify:')),
-    ('not_answering', _('Don\'t want to answer')),
+APPLICANT_TYPE = (
+    (EMPLOYEE, _("Employee")),
+    (INVESTOR, _("Investor"))
 )

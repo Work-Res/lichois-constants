@@ -70,9 +70,12 @@ WITNESS = "witness"
 DECLARANT = "declarant"
 ADOPTIVE_PARENT = "adoptive_parent"
 SUBSCRIBER = "subscriber"
+EMPLOYEE = "employee"
+INVESTOR = "investor"
+OFFICER = "officer"
 
 # Education Levels
-HIGH_SCHOOL = "High School"
+JUNIOR_SCHOOL = "Junior School"
 ASSOCIATE_DEGREE = "Associate Degree"
 BACHELORS_DEGREE = "Bachelor's Degree"
 MASTERS_DEGREE = "Master's Degree"
@@ -91,6 +94,9 @@ MONTHS = "months"
 WEEKS = "weeks"
 DAYS = "days"
 PERMANENT = "permanent"
+EMERGENCY_SHORT = "short"
+EMERGENCY_MEDIUM = "medium"
+EMERGENCY_LONG = "long"
 
 # Application Types
 INITIAL = "initial"
@@ -105,3 +111,4 @@ UUID_PATTERN = re.compile(
 VIEW = 'VIEW'
 WEEKDAYS = 'weekdays'
 WEEKENDS = 'weekends'
+ANYTIME = "anytime"
