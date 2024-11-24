@@ -133,7 +133,7 @@ COUNTRY = (
     ('nigeria', 'Nigeria'),
     ('china', 'China'),
     ('india', 'India'),
-    ('OTHER', 'Other'),
+    (OTHER, _('Other: Specify Other')),
 )
 
 DAYS_OF_WEEK = (
@@ -151,15 +151,6 @@ GENDER = (
     (MALE, _('Male')),
     (FEMALE, _('Female')),
 )
-
-IDENTITY_TYPE = (
-    (OMANG, 'Omang'),
-    ('DRIVERS', 'Driver\'s License'),
-    ('PASSPORT', 'Passport'),
-    ('OMANG_RCPT', 'Omang Receipt'),
-    (OTHER, 'Other'),
-)
-
 
 TIME_OF_WEEK = (
     (WEEKDAYS, 'Weekdays'),
@@ -190,8 +181,6 @@ YES_NO_NA = (
 
 # TODO: update choices
 
-COMM_METHODS = (("email", "E-mail"), ("sms", "SMS"), ("postal", "Post"))
-
 DATE_ESTIMATED_NA = (
     (NOT_APPLICABLE, "Not applicable"),
     ("not_estimated", "No."),
@@ -207,33 +196,26 @@ DATE_ESTIMATED = (
     ("YMD", "Yes, estimated Year, Month and Day"),
 )
 
-GENDER = (("male", "Male"), ("female", "Female"), ("other", "OTHER"))
 
 IDENTITY_TYPE = (
-    ("OMANG", "Omang"),
-    ("DRIVERS", "Driver's License"),
-    ("PASSPORT", "Passport"),
-    ("OMANG_RCPT", "Omang Receipt"),
-    ("OTHER", "Other"),
+    (OMANG, _("Omang")),
+    (DRIVERS_LICENSE, _("Driver's License")),
+    (PASSPORT, _("Passport")),
+    (OMANG_RECEIPT, _("Omang Receipt")),
+    (OTHER, _("Other: Specify Other")),
 )
 
 MARITAL_STATUS = (
-    ("single", "Single"),
-    ("married", "Married"),
-    ("widowed", "Widowed"),
-    ("separated", "Separated"),
-    ("divorced", "Divorced"),
+    (SINGLE, _("Single")),
+    (MARRIED, _("Married")),
+    (WIDOWED, _("Widowed")),
+    (SEPARATED, _("Separated")),
+    (DIVORCED, _("Divorced")),
 )
 
-PERMIT_TYPE = (("work", "Work"), ("residence", "Residence"))
+PERMIT_TYPE = ((WORK, _("Work")), (RESIDENCE, _("Residence")))
 
-POSTAL_PREFIX = (
-    ("VB#", "VB#"),
-    ("private_bag", "Private Bag"),
-    ("p_o_box", "P. O. Box"),
-)
-
-PREFERRED_METHOD_COMM = (("sms", "SMS"), ("post", "POST"), ("email", "EMAIL"))
+PREFERRED_METHOD_COMM = ((SMS, _("SMS")), (POSTAL, _("POST")), (EMAIL, _("EMAIL")))
 REASONS_PERMIT = (
     ("dependent", "Dependent"),
     ("volunteer", "Volunteer"),
